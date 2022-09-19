@@ -6,4 +6,5 @@ use (
 ./iteration
 ./arrays
 ./structs
+./pointers
 )
