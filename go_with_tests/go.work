@@ -7,4 +7,5 @@ use (
 ./arrays
 ./structs
 ./pointers
+./maps
 )
