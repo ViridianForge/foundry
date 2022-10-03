@@ -1,0 +1,11 @@
+# Do not commit the viritual environment
+venv
+.venv
+
+# Do not commit reports
+reports/
+report.html
+
+#Do not commit pychaches
+__pycache__
+.pytest_cache
