@@ -8,4 +8,5 @@ use (
 ./structs
 ./pointers
 ./maps
+./dependency_injection
 )
