@@ -1,4 +1,5 @@
 grpc_requests
 homi
+pre-commit
 pytest
 pytest-html
