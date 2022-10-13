@@ -1,0 +1,23 @@
+[tool.black]
+line-length = 120
+target-version = ['py310']
+include = '\.pyi?$\'
+extend-exclude = '''
+        (?x)^(
+          \.git
+          \.__pycache__
+          \.hg
+          \.mypy_cache
+          \.pre-commit-config.yaml
+          \.proto
+          \.tox
+          \.venv
+          venv
+          _pb2.py
+          _pb2_grpc.py
+          _build
+          buck-out
+          build
+          dist
+        )
+      '''
