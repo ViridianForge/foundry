@@ -1,0 +1,5 @@
+[flake8]
+max-line-length = 120
+max-complexity = 18
+exclude = .git,__pycache__,.proto,*_pb2.py,*_pb2_grpc.py
+select = B,C,E,F,W,T4,B9

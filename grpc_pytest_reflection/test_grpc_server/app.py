@@ -6,7 +6,12 @@ try:
 except Exception:
     from helloworld_pb2 import _GREETER
 
-app = App(services=[reflection_service, health_service, ])
+app = App(
+    services=[
+        reflection_service,
+        health_service,
+    ]
+)
 
 greeter = Service(_GREETER)
 
@@ -22,7 +27,7 @@ def SayHello(name, **kwargs):
 @greeter.method()
 def SayHelloGroup(name, **kwargs):
     print(f"{name} is request SayHelloGroup")
-    names = ['a', 'b', 'c', 'd']
+    names = ["a", "b", "c", "d"]
     for name in names:
         yield {"message": f"Hello {name}!"}
 
@@ -32,8 +37,8 @@ def SayHelloGroup(name, **kwargs):
 def HelloEveryone(request_iterator, context):
     names = []
     for reqs in request_iterator:
-        print('you can get raw request', reqs.raw_data)
-        names.append(reqs['name'])
+        print("you can get raw request", reqs.raw_data)
+        names.append(reqs["name"])
     return {"message": f"Hello everyone {names}!"}
 
 
@@ -41,12 +46,12 @@ def HelloEveryone(request_iterator, context):
 @greeter.method()
 def SayHelloOneByOne(request_iterator, context):
     for req in request_iterator:
-        name = req['name']
+        name = req["name"]
         print(f"{name} say to you hello")
         yield {"message": f"Hello {name}!"}
 
 
 app.add_service(greeter)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     Server(app=app, worker=200).run()
