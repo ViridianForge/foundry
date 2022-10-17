@@ -1,0 +1,16 @@
+---
+version: 2
+updates:
+  # Version updates for pip projects
+  - package-ecosystem: pip
+    # Make sure to add new pip projects to this directive
+    directory: "/grpc_pytest_reflection"
+    schedule:
+      interval: "weekly"
+
+  # Version updates for go projects
+  - package-ecosystem: gomod
+    # Make sure to add new go projects to this directive
+    directory: "/go_with_tests"
+    schedule:
+      interval: "weekly"
