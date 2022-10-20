@@ -51,7 +51,6 @@ linters:
     - godot
     - goimports
     - gomnd
-    - gomodguard
     - gosec
     - lll
     - makezero
