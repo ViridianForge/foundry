@@ -7,32 +7,80 @@
 
 # configure golangci-lint
 # https://github.com/golangci/golangci-lint/blob/master/.golangci.example.yml
+# see the following gist as a very good reference
+# https://gist.github.com/maratori/47a4d00457a92aa426dbd48a18776322
 issues:
+  max-same-issues: 15
+
   exclude-rules:
-    - path: _test\.go
+    - path: "_test\\.go"
       linters:
+        - bodyclose
         - dupl
-        - gosec
+        - funlen
         - goconst
+        - gosec
+        - noctx
+        - wrapcheck
 linters:
+  disable-all: true
   enable:
-    - gosec
-    - unconvert
-    - gocyclo
-    - goconst
-    - goimports
-    - gocritic
+    ## Normally Enabled by Default
+    - errcheck
+    - gosimple
     - govet
-    - revive
+    - ineffassign
+    - staticcheck
+    - typecheck
+    - unused
+    ## Normally Disabled by Default
+    - asasalint
+    - asciicheck
+    - bidichk
+    - bodyclose
+    - cyclop
+    - dupl
+    - durationcheck
+    - errname
+    - errorlint
+    - funlen
+    - gocognit
+    - goconst
+    - gocritic
+    - gocyclo
+    - godot
+    - goimports
+    - gomnd
+    - gomodguard
+    - gosec
+    - lll
+    - makezero
+    - nakedret
+    - nestif
+    - nilerr
+    - nilnil
+    - nonamedreturns
+    - predeclared
+    - tenv
+    - testpackage
+    - unconvert
+    - unparam
+    - wastedassign
+    - whitespace
+  fast: true
 linters-settings:
   errcheck:
     # report about assignment of errors to blank identifier:
     # `num, _ := strconv.Atoi(numStr)`;
     # default is false: such cases aren't reported by default.
-    check-blank: true
+    check-type-assertions: true
   govet:
+    # Enable all analyzers
+    enable-all: true
     # report about shadowed variables
     check-shadowing: true
+    disable:
+      - fieldalignment # Considered too strict
   gocyclo:
     # minimal code complexity to report, 30 by default
     min-complexity: 15
