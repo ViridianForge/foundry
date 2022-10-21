@@ -31,7 +31,6 @@ linters:
     - govet
     - ineffassign
     - staticcheck
-    - typecheck
     - unused
     ## Normally Disabled by Default
     - asasalint
