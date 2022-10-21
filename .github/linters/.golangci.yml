@@ -13,7 +13,7 @@ issues:
   max-same-issues: 15
 
   exclude-rules:
-    - path: "_test\\.go"
+    - path: "(.+)_test\\.go"
       linters:
         - bodyclose
         - dupl
@@ -21,6 +21,7 @@ issues:
         - goconst
         - gosec
         - noctx
+        - typecheck
         - wrapcheck
 linters:
   disable-all: true
@@ -31,6 +32,7 @@ linters:
     - govet
     - ineffassign
     - staticcheck
+    - typecheck
     - unused
     ## Normally Disabled by Default
     - asasalint
