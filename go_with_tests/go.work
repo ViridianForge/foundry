@@ -1,13 +1,14 @@
 go 1.19
 
 use (
- ./hello
+./arrays
+./concurrency
+./dependency_injection
+./hello
 ./integers
 ./iteration
-./arrays
-./structs
-./pointers
 ./maps
-./dependency_injection
 ./mocks
+./pointers
+./structs
 )
