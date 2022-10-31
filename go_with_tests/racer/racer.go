@@ -28,7 +28,8 @@ func ping(url string) chan struct{} {
 	// Disable gosec here for the purposes of the example
 	/* #nosec */
 	go func() {
-		_, err := http.Get(url)
+		resp, err := http.Get(url)
+		resp.Body.Close()
 		if err != nil {
 			panic("Server did not respond! Woe and terror!")
 		}
