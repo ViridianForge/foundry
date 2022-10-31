@@ -10,5 +10,6 @@ use (
 ./maps
 ./mocks
 ./pointers
+./racer
 ./structs
 )
