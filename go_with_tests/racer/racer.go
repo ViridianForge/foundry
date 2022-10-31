@@ -25,6 +25,8 @@ func ConfigurableRacer(url1 string, url2 string, timeout time.Duration) (string,
 
 func ping(url string) chan struct{} {
 	ch := make(chan struct{})
+	// Disable gosec here for the purposes of the example
+	/* nosec */
 	go func() {
 		_, err := http.Get(url)
 		if err != nil {
