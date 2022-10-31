@@ -26,7 +26,10 @@ func ConfigurableRacer(url1 string, url2 string, timeout time.Duration) (string,
 func ping(url string) chan struct{} {
 	ch := make(chan struct{})
 	go func() {
-		http.Get(url)
+		_, err := http.Get(url)
+		if err != nil {
+			panic("Server did not respond! Woe and terror!")
+		}
 		close(ch)
 	}()
 	return ch
